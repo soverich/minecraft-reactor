@@ -252,9 +252,9 @@ function update()
               f.draw_text_lr(mon, 2, 14, 1, "Input Gate", f.format_int(inputfluxgate.getSignalLowFlow()) .. " rf/t", colors.white, colors.blue, colors.black)
 
               if autoInputGate == 1 then
-	      f.draw_text(mon, 14, 10, "AU", colors.white, colors.gray)
+	      f.draw_text(mon, 14, 25, "AU", colors.white, colors.gray)
 	    else
-	      f.draw_text(mon, 14, 10, "MA", colors.white, colors.gray)
+	      f.draw_text(mon, 14, 25, "MA", colors.white, colors.gray)
 	      drawButtons(10)
 	    end
 
