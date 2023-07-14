@@ -99,11 +99,11 @@ function buttons()
     -- 2-4 = -1000, 6-9 = -10000, 10-12,8 = -100000
     -- 17-19 = +1000, 21-23 = +10000, 25-27 = +100000
     if yPos == 4 then
-      if ri.status == "running" and xPos >= 35 and xPos <= 37 then
+      if ri.status == "running" and xPos >= 25 and xPos <= 27 then
         reactor.stopReactor()
-      elseif ri.status == "cold" and xPos >= 35 and xPos <= 37 then
+      elseif ri.status == "cold" and xPos >= 25 and xPos <= 27 then
         reactor.chargeReactor()
-      elseif ri.status == "warming_up" and xPos >= 35 and xPos <= 37 then
+      elseif ri.status == "warming_up" and xPos >= 25 and xPos <= 27 then
         reactor.activateReactor()
       end
     end
@@ -116,11 +116,11 @@ function buttons()
         cFlow = cFlow-10000
       elseif xPos >= 10 and xPos <= 12 then
         cFlow = cFlow-100000
-      elseif xPos >= 28 and xPos <= 31 then
+      elseif xPos >= 17 and xPos <= 19 then
         cFlow = cFlow+100000
-      elseif xPos >= 32 and xPos <= 36 then
+      elseif xPos >= 21 and xPos <= 23 then
         cFlow = cFlow+10000
-      elseif xPos >= 36 and xPos <= 39 then
+      elseif xPos >= 25 and xPos <= 27 then
         cFlow = cFlow+1000
       end
       fluxgate.setSignalLowFlow(cFlow)
@@ -136,11 +136,11 @@ function buttons()
         curInputGate = curInputGate-10000
       elseif xPos >= 10 and xPos <= 12 then
         curInputGate = curInputGate-100000
-      elseif xPos >= 28 and xPos <= 31 then
+      elseif xPos >= 17 and xPos <= 19 then
         curInputGate = curInputGate+100000
-      elseif xPos >= 32 and xPos <= 36 then
+      elseif xPos >= 21 and xPos <= 23 then
         curInputGate = curInputGate+10000
-      elseif xPos >= 36 and xPos <= 39 then
+      elseif xPos >= 25 and xPos <= 27 then
         curInputGate = curInputGate+1000
       end
       inputfluxgate.setSignalLowFlow(curInputGate)
@@ -148,7 +148,7 @@ function buttons()
     end
 
     -- input gate toggle
-    if yPos == 15 and ( xPos == 20 or xPos == 21) then
+    if yPos == 15 and ( xPos == 14 or xPos == 15) then
       if autoInputGate == 1 then
         autoInputGate = 0
       else
@@ -168,9 +168,9 @@ function drawButtons(y)
   f.draw_text(mon, 6, y, " <<", colors.white, colors.gray)
   f.draw_text(mon, 10, y, "<<<", colors.white, colors.gray)
 
-  f.draw_text(mon, 28, y, ">>>", colors.white, colors.gray)
-  f.draw_text(mon, 32, y, ">> ", colors.white, colors.gray)
-  f.draw_text(mon, 36, y, " > ", colors.white, colors.gray)
+  f.draw_text(mon, 17, y, ">>>", colors.white, colors.gray)
+  f.draw_text(mon, 21, y, ">> ", colors.white, colors.gray)
+  f.draw_text(mon, 25, y, " > ", colors.white, colors.gray)
 end
 
 
@@ -232,9 +232,9 @@ function update()
               end
               f.draw_text_lr(mon, 2, 2, 1, "Reactor Status", string.upper(ri.status), colors.white, statusColor, colors.black)
               if ri.status == "running" then
-                f.draw_text(mon, 35, 4, "STOP", colors.red, colors.gray)
+                f.draw_text(mon, 25, 4, "STOP", colors.red, colors.gray)
               elseif ri.status == "cold" or ri.status == "warming_up" then
-                f.draw_text(mon, 35, 4, "START", colors.lime, colors.gray)
+                f.draw_text(mon, 25, 4, "START", colors.lime, colors.gray)
               end
               f.draw_text_lr(mon, 2, 9, 1, "Generation", f.format_int(ri.generationRate) .. " rf/t", colors.white, colors.lime, colors.black)
               f.draw_text_lr(mon, 2, 10, 1, "Output", (f.format_int(ri.generationRate - inputfluxgate.getSignalLowFlow())) .. " rf/t", colors.white, colors.lime, colors.black)
@@ -252,11 +252,11 @@ function update()
               f.draw_text_lr(mon, 2, 14, 1, "Input Gate", f.format_int(inputfluxgate.getSignalLowFlow()) .. " rf/t", colors.white, colors.blue, colors.black)
 
               if autoInputGate == 1 then
-                f.draw_text(mon, 20, 15, "AUTO", colors.white, colors.gray)
-              else
-                f.draw_text(mon, 18, 15, "MANUEL", colors.white, colors.gray)
-                drawButtons(15)
-              end
+	      f.draw_text(mon, 14, 10, "AU", colors.white, colors.gray)
+	    else
+	      f.draw_text(mon, 14, 10, "MA", colors.white, colors.gray)
+	      drawButtons(10)
+	    end
 
               f.draw_text_lr(mon, 2, 17, 1, "Energy Saturation", satPercent .. "%", colors.white, colors.white, colors.black)
               f.progress_bar(mon, 2, 18, mon.X-2, satPercent, 100, colors.blue, colors.gray)
