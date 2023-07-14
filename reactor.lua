@@ -204,6 +204,17 @@ function update()
         print(k.. ": ".. v)
       end
     end
+			
+		
+    for k, v in pairs (monitor) do 
+      if v == true then
+        print(k.. ": ".. tostring(v))
+      elseif v == false then
+        print(k.. ": ".. tostring(v))
+      else
+        print(k.. ": ".. v)
+      end
+    end
     print("Output Gate: ", fluxgate.getSignalLowFlow())
     print("Input Gate: ", inputfluxgate.getSignalLowFlow())
 
@@ -218,7 +229,6 @@ function update()
 
     local fieldPercent, fieldColor
     fieldPercent = math.ceil(ri.fieldStrength / ri.maxFieldStrength * 10000)*.01
-    print(json.decode(monitor))
     if monitor == null then
       print("No valid monitors was found")
     else
