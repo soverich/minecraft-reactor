@@ -10,7 +10,7 @@ local lowestFieldPercent = 15
 local activateOnCharged = 1
 
 -- please leave things untouched from here on
-os.loadAPI()
+os.loadAPI("json")
 os.loadAPI("lib/f")
 
 local version = "0.25"
