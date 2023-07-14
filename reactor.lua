@@ -28,6 +28,7 @@ local inputfluxgate
 -- reactor information
 local ri
 
+local action = "None since reboot"
 local emergencyCharge = false
 local emergencyTemp = false
 
@@ -277,6 +278,7 @@ function update()
 
               f.draw_text_lr(mon, 2, 23, 1, "Fuel ", fuelPercent .. "%", colors.white, fuelColor, colors.black)
               f.progress_bar(mon, 2, 24, mon.X-2, fuelPercent, 100, fuelColor, colors.gray)
+		f.draw_text_lr(mon, 2, 25, 1, "Action ", action, colors.gray, colors.gray, colors.black)
     end
     
     -- actual reactor interaction
@@ -319,13 +321,16 @@ function update()
     
     -- out of fuel, kill it
     if fuelPercent <= 10 then
+	action = "Fuel below 10%, refuel"
       reactor.stopReactor()
     end
     	if satPercent >= 90 then
-		reactor.stopReactor()
+	action = "Saturation reached +90%"
+	reactor.stopReactor()
 	end
     -- field strength is too dangerous, kill and it try and charge it before it blows
     if fieldPercent <= lowestFieldPercent and ri.status == "running" then
+	action = "Field Str < " ..lowestFieldPercent.."%"
       reactor.stopReactor()
       reactor.chargeReactor()
       emergencyCharge = true
@@ -333,6 +338,7 @@ function update()
 
     -- temperature too high, kill it and activate it when its cool
     if ri.temperature > maxTemperature then
+	action = "Temp > " .. maxTemperature
       reactor.stopReactor()
       emergencyTemp = true
     end
