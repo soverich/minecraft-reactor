@@ -252,10 +252,10 @@ function update()
               f.draw_text_lr(mon, 2, 14, 1, "Input Gate", f.format_int(inputfluxgate.getSignalLowFlow()) .. " rf/t", colors.white, colors.blue, colors.black)
 
               if autoInputGate == 1 then
-	      f.draw_text(mon, 14, 25, "AU", colors.white, colors.gray)
+	      f.draw_text(mon, 14, 15, "AU", colors.white, colors.gray)
 	    else
-	      f.draw_text(mon, 14, 25, "MA", colors.white, colors.gray)
-	      drawButtons(10)
+	      f.draw_text(mon, 14, 15, "MA", colors.white, colors.gray)
+	      drawButtons(15)
 	    end
 
               f.draw_text_lr(mon, 2, 17, 1, "Energy Saturation", satPercent .. "%", colors.white, colors.white, colors.black)
