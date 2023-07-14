@@ -10,7 +10,6 @@ local lowestFieldPercent = 15
 local activateOnCharged = 1
 
 -- please leave things untouched from here on
-print("json")
 os.loadAPI("json")
 os.loadAPI("lib/f")
 
@@ -219,7 +218,7 @@ function update()
 
     local fieldPercent, fieldColor
     fieldPercent = math.ceil(ri.fieldStrength / ri.maxFieldStrength * 10000)*.01
-    print(json.encode(monitor))
+    print(json.decode(monitor))
     if monitor == null then
       print("No valid monitors was found")
     else
