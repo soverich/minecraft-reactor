@@ -213,7 +213,7 @@ function update()
 
     local satPercent
     satPercent = math.ceil(ri.energySaturation / ri.maxEnergySaturation * 10000)*.01
-	print(ri.energySaturation)
+		
     local fieldPercent, fieldColor
     fieldPercent = math.ceil(ri.fieldStrength / ri.maxFieldStrength * 10000)*.01
     if monitor == null then
@@ -321,7 +321,9 @@ function update()
     if fuelPercent <= 10 then
       reactor.stopReactor()
     end
-
+    	if satPercent >= 90 then
+		reactor.stopReactor()
+	end
     -- field strength is too dangerous, kill and it try and charge it before it blows
     if fieldPercent <= lowestFieldPercent and ri.status == "running" then
       reactor.stopReactor()
