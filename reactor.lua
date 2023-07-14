@@ -211,8 +211,10 @@ function update()
         print(k.. ": ".. tostring(v))
       elseif v == false then
         print(k.. ": ".. tostring(v))
-      else
+      elseif v then
         print(k.. ": ".. v)
+	else
+        print(k.. ": buneknk")
       end
     end
     print("Output Gate: ", fluxgate.getSignalLowFlow())
