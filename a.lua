@@ -48,7 +48,7 @@ function periphSearch(type)
      draw_text(mon, x, y, text1, text1_color, bg_color)
      draw_text_right(mon, offset, y, text2, text2_color, bg_color)
  end
- x"
+ 
  --draw line on computer terminal
  function draw_line(mon, x, y, length, color)
      if length < 0 then
