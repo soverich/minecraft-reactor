@@ -10,6 +10,7 @@ local lowestFieldPercent = 15
 local activateOnCharged = 1
 
 -- please leave things untouched from here on
+print("json")
 os.loadAPI("json")
 os.loadAPI("lib/f")
 
