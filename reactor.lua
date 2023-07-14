@@ -206,15 +206,15 @@ function update()
     end
 			
 		
-    for k, v in pairs (monitor) do 
-      if v == true then
-        print(k.. ": ".. tostring(v))
-      elseif v == false then
-        print(k.. ": ".. tostring(v))
-	else
-        print(k.. ": buneknk")
-      end
-    end
+    --for k, v in pairs (monitor) do 
+      --if v == true then
+        --print(k.. ": ".. tostring(v))
+     -- elseif v == false then
+       -- print(k.. ": ".. tostring(v))
+	--else
+    --    print(k.. ": buneknk")
+   --   end
+  --  end
     print("Output Gate: ", fluxgate.getSignalLowFlow())
     print("Input Gate: ", inputfluxgate.getSignalLowFlow())
 
