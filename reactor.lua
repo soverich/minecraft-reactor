@@ -217,7 +217,7 @@ function update()
 
     local fieldPercent, fieldColor
     fieldPercent = math.ceil(ri.fieldStrength / ri.maxFieldStrength * 10000)*.01
-    print(monitor)
+    print(JSON.encode(monitor))
     if monitor == null then
       print("No valid monitors was found")
     else
