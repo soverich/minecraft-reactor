@@ -211,8 +211,6 @@ function update()
         print(k.. ": ".. tostring(v))
       elseif v == false then
         print(k.. ": ".. tostring(v))
-      elseif v then
-        print(k.. ": ".. tostring(v))
 	else
         print(k.. ": buneknk")
       end
