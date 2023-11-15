@@ -47,6 +47,7 @@ end
 
 while inputfluxgate == null do
 	inputfluxgate = f.periphSearch("flux_gate")
+	print(inputfluxgate)
     sleep(0.1)
 end
 
