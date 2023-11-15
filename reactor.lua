@@ -314,8 +314,11 @@ function update()
       if autoInputGate == 1 then 
         fluxval = ri.fieldDrainRate / (1 - (targetStrength/100) )
         print("Target Gate: ".. fluxval)
-        inputfluxgate.setSignalLowFlow(fluxval)
-	curInputGate = fluxval
+	print("FieldDrainRate: ".. ri.fieldDrainRate.. " fluxval: ".. fluxval)
+	if fluxval <= 300000 then
+	        inputfluxgate.setSignalLowFlow(fluxval)
+		curInputGate = fluxval
+	end
       else
         inputfluxgate.setSignalLowFlow(curInputGate)
       end
