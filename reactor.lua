@@ -46,7 +46,7 @@ if monitor == null then
 end
 
 if fluxgate == inputfluxgate then
-	inputfluxgate = f.periphSearch("flux_gate")
+	error("fluxgate and inputfluxgate are the same")
 end
 
 if fluxgate == null then
