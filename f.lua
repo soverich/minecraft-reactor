@@ -6,6 +6,9 @@ function periphSearch(type)
     local i, name
     for i, name in pairs(names) do
        if peripheral.getType(name) == type then
+            if peripheral.wrap(name) == peripheral.wrap("right") then
+                return null
+            end
           return peripheral.wrap(name)
        end
     end
