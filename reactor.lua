@@ -37,12 +37,16 @@ inputfluxgate = f.periphSearch("flux_gate")
 fluxgate = peripheral.wrap(fluxgateSide)
 reactor = peripheral.wrap(reactorSide)
 
-
+function inputfluxgatecheck()
+	inputfluxgate = f.periphSearch("flux_gate")
+end
 
 if monitor == null then
 	print("No valid monitor was found")
-else
-  
+end
+
+if fluxgate == inputfluxgate then
+	inputfluxgate = f.periphSearch("flux_gate")
 end
 
 if fluxgate == null then
