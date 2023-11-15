@@ -45,6 +45,11 @@ if monitor == null then
 	print("No valid monitor was found")
 end
 
+while inputfluxgate == null do
+	inputfluxgate = f.periphSearch("flux_gate")
+    sleep(0.1)
+end
+
 if fluxgate == inputfluxgate then
 	error("fluxgate and inputfluxgate are the same")
 end
@@ -56,11 +61,6 @@ end
 if reactor == null then
 	error("No valid reactor was found")
 end
-
-if inputfluxgate == null then
-	error("No valid flux gate was found")
-end
-
 
 function monitorcheck()
     monitor = f.periphSearch("monitor")
