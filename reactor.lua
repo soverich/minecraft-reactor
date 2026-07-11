@@ -180,6 +180,7 @@ end
 
 
 function update()
+	f.clear(mon)
   while true do 
     monitorcheck()
     if monitor == null then
@@ -187,7 +188,7 @@ function update()
       monX, monY = monitor.getSize()
       mon = {}
       mon.monitor,mon.X, mon.Y = monitor, monX, monY
-      f.clear(mon)
+      
     end
 
     ri = reactor.getReactorInfo()
