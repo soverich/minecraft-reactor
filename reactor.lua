@@ -180,20 +180,15 @@ end
 
 
 function update()
-	while monitor == null do
-		monitorcheck()
-		if monitor == null then
-	    else
-	      monX, monY = monitor.getSize()
-	      mon = {}
-	      mon.monitor,mon.X, mon.Y = monitor, monX, monY
-	      f.clear(mon)
-	    end
-		sleep(0.1)
-	end
   while true do 
-    
-    
+    monitorcheck()
+	if monitor == null then
+	else
+	  monX, monY = monitor.getSize()
+	  mon = {}
+	  mon.monitor,mon.X, mon.Y = monitor, monX, monY
+	  f.clear(mon)
+	end
 
     ri = reactor.getReactorInfo()
 
