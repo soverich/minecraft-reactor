@@ -48,7 +48,7 @@ end
 while inputfluxgate == null do
 	inputfluxgate = f.periphSearch("flow_gate")
 	print(inputfluxgate)
-    sleep(0.1)
+    sleep(0)
 end
 
 if fluxgate == inputfluxgate then
@@ -352,7 +352,7 @@ function update()
     end
 
     monitorcheck()
-    sleep(0.1)
+    sleep(0)
   end
 end
 
