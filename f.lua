@@ -74,7 +74,7 @@ function periphSearch(type)
  
  
  function clear(mon)
-   term.clear()
+   term.clearLine()
    term.setCursorPos(1,1)
    mon.monitor.setBackgroundColor(colors.black)
    mon.monitor.clear()
