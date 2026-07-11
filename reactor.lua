@@ -33,12 +33,12 @@ local emergencyCharge = false
 local emergencyTemp = false
 
 monitor = f.periphSearch("monitor")
-inputfluxgate = f.periphSearch("flux_gate")
+inputfluxgate = f.periphSearch("flow_gate")
 fluxgate = peripheral.wrap(fluxgateSide)
 reactor = peripheral.wrap(reactorSide)
 
 function inputfluxgatecheck()
-	inputfluxgate = f.periphSearch("flux_gate")
+	inputfluxgate = f.periphSearch("flow_gate")
 end
 
 if monitor == null then
@@ -46,7 +46,7 @@ if monitor == null then
 end
 
 while inputfluxgate == null do
-	inputfluxgate = f.periphSearch("flux_gate")
+	inputfluxgate = f.periphSearch("flow_gate")
 	print(inputfluxgate)
     sleep(0.1)
 end
