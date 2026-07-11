@@ -187,7 +187,7 @@ function update()
 	  monX, monY = monitor.getSize()
 	  mon = {}
 	  mon.monitor,mon.X, mon.Y = monitor, monX, monY
-
+	  f.clear(mon)
 	end
 
     ri = reactor.getReactorInfo()
